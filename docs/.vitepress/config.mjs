@@ -4,8 +4,8 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "PRISM",
   description: "Predictive Recommendations for Improved Screening in Medicine",
+  appearance: 'dark', // Add this line to make dark mode default
   themeConfig: {
-    appearance: 'dark', // Add this line to make dark mode default
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
