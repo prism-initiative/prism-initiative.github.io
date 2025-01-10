@@ -4,22 +4,22 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 18
+          cache: npm
       - run: npm ci
       - name: Build
         run: npm run docs:build
-      - uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/.vitepress/dist
-          # The following lines are needed if you want to keep the custom domain 
-          # cname: your-domain.com
+          folder: docs/.vitepress/dist
