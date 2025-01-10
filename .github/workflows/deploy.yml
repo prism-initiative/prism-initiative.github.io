@@ -16,10 +16,20 @@ jobs:
         with:
           node-version: 18
           cache: npm
+      
+      # Create .nojekyll file
+      - name: Create .nojekyll file
+        run: touch .nojekyll
+      
       - run: npm ci
+      
       - name: Build
         run: npm run docs:build
+      
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: docs/.vitepress/dist
+          branch: gh-pages
+          clean: true
+          single-commit: true
