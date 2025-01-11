@@ -4,12 +4,11 @@ export default defineConfig({
   title: 'PRISM',
   description: 'Predictive Recommendations for Improved Screening in Medicine',
   appearance: 'dark',
-
+  cleanUrls: true,
   themeConfig: {
-    // nav: [
-    //   { text: 'Home', link: '/' },
-    //   { text: 'GitHub', link: 'https://github.com/prism-initiative/prism-initiative.github.io' }
-    // ],
+    nav: [
+      { text: 'Home', link: '/' },
+    ],
 
     sidebar: [
       {
@@ -57,10 +56,12 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/prism-initiative/prism-initiative.github.io' }
+      { icon: 'github', link: 'https://github.com/prism-initiative/prism-initiative.github.io' },
+      { icon: 'twitter', link: 'https://twitter.com/brian_jorden' },
+      { icon: 'linkedin', link: 'https://www.linkedin.com/in/brianjorden' },
     ]
   },
-
+  
   markdown: {
     lineNumbers: true
   }
