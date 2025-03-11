@@ -14,49 +14,46 @@ export default defineConfig({
       {
         text: 'Introduction',
         items: [
-          { text: 'Project Summary', link: '/01-project-summary' },
-          { text: 'Project Overview', link: '/02-project-overview' },
-          { text: 'The Five Ws', link: '/03-the-five-ws' },
+          { text: 'Executive Summary', link: '01-executive-summary' },
         ]
       },
       {
-        text: 'Architecture',
+        text: 'Conceptual Framework',
         items: [
-          { text: 'Ensemble Architecture', link: '/04-ensemble-architecture' },
-          { text: 'Foundational Concepts', link: '/05-foundational-concepts' },
-          { text: 'Mathematical Patterns', link: '/06-mathematical-patterns' },
-          { text: 'Reinforcement Learning', link: '/07-reinforcement-learning' },
+          { text: 'Vision Mission', link: '02-vision-mission' },
+          { text: 'Pattern Examples', link: '03-pattern-examples' },
+          { text: 'Ethical Framework', link: '04-ethical-framework' },
+          { text: 'Open Collaboration', link: '05-open-collaboration' },
         ]
       },
       {
-        text: 'Ethics and Collaboration',
-        items: [
-          { text: 'Ethics and Safeguards', link: '/08-ethics-and-safeguards' },
-          { text: 'Open Collaboration', link: '/09-open-collaboration' },
+        text: 'Technical Details',
+        items: [          
+          { text: 'System Architecture', link: '06-system-architecture' },
+          { text: 'Technology Overview', link: '07-technology-overview' },
+          { text: 'Training Methodology', link: '08-training-methodology' },
         ]
       },
       {
-        text: 'Examples and Use Cases',
+        text: 'Looking Forward',
         items: [
-          { text: 'History Data Format', link: '/10-history-data-format' },
-          { text: 'Hypothetical Narratives', link: '/11-hypothetical-narratives' },
-          { text: 'Call for Conditions', link: '/12-call-for-conditions' },
-          { text: 'Example Conditions', link: '/13-example-conditions' },
-          { text: 'Different Perspectives', link: '/14-different-perspectives' },
-          { text: 'Key Challenges', link: '/15-key-challenges' },
+          { text: 'Future Directions', link: '09-future-directions' },
+          { text: 'Deeper Motivations', link: '10-deeper-motivations' },
         ]
       },
       {
-        text: 'Early Experiments',
+        text: 'Example Data',
         items: [
-          { text: 'Detailed Example', link: '/16-detailed-example' },
-          { text: 'Experiment Results', link: '/17-experiment-results' },
+          { text: 'GOOD Exampe', link: '11-good-example' },
+          { text: 'BAD Exampe', link: '12-bad-example' },
+          { text: 'NOPE Exampe', link: '13-nope-example' },
         ]
       }
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/prism-initiative/prism-initiative.github.io' },
+      { icon: 'huggingface', link: 'https://huggingface.co/prism-initiative' },
+      { icon: 'github', link: 'https://github.com/prism-initiative' },
       { icon: 'twitter', link: 'https://twitter.com/brian_jorden' },
       { icon: 'linkedin', link: 'https://www.linkedin.com/in/brianjorden' },
     ]
