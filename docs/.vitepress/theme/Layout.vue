@@ -31,7 +31,17 @@ onMounted(() => {
       style: "expressive",
       isFlat: true,
       xPaths: ["//main"],
-      isLogging: true
+      isLogging: true,
+      styles: {
+        audioPlayerBox: {
+          boxShadow: 'none',
+          backgroundColor: 'transparent'
+        },
+        seekBar: {
+          backgroundColor: '#444',
+          backgroundImage: 'linear-gradient(#0078d4, #0078d4)'
+        }
+      }
     })
   }
   document.head.appendChild(script)
@@ -45,15 +55,47 @@ onUnmounted(() => {
 
 <template>
   <DefaultTheme.Layout>
-    <template #nav-bar-title-after>
-      <div id="tts-player-container" style="margin-right: 15px;"></div>
+    <template #nav-bar-content-before>
+      <div id="tts-player-container" class="tts-player-wrapper"></div>
     </template>
   </DefaultTheme.Layout>
 </template>
 
 <style>
-/* Additional custom styles for the player if needed */
+/* Improved styling for better integration */
+.tts-player-wrapper {
+  margin-right: 16px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
 .audio-player-box {
-  width: 350px !important;
+  width: 36px !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+/* Hide the "Powered by Azure" section */
+.label-content {
+  display: none !important;
+}
+
+/* Adjust the player area spacing */
+.player-area {
+  margin: 0 !important;
+}
+
+/* Only show the play button initially */
+.player-progress, .player-tip {
+  display: none !important;
+}
+
+/* Make the play button more visible against dark background */
+.audio-view-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  padding: 5px;
+  margin: 0;
 }
 </style>
