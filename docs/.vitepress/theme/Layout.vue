@@ -45,7 +45,7 @@ onUnmounted(() => {
 
 <template>
   <DefaultTheme.Layout>
-    <template #nav-bar-title-before>
+    <template #nav-bar-title-after>
       <div id="tts-player-container" style="margin-right: 15px;"></div>
     </template>
   </DefaultTheme.Layout>
