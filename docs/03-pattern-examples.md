@@ -178,7 +178,7 @@ While we've focused on primary aldosteronism in these examples, PRISM applies th
 
 For each condition, PRISM trains on GOOD, BAD, and NOPE examples to learn:
 - What patterns suggest an opportunity for beneficial screening
-- When in the disease progression screening is most valuable
+- When in the disease progression is screening most appropriate
 - How to distinguish between similar patterns with different underlying causes
 - Which screening tests are appropriate for specific pattern combinations
 
