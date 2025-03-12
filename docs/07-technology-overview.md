@@ -2,51 +2,19 @@
 
 PRISM leverages a diverse array of cutting-edge technologies to create a system that can effectively identify patterns in medical billing data while maintaining strict privacy standards. This document provides an overview of the key technologies that power PRISM's infrastructure, data processing, machine learning capabilities, and optimization techniques.
 
-## Infrastructure and Hardware
+## Acknowledging Technological Foundations
 
-### Proxmox
+PRISM's development stands on the shoulders of extraordinary open-source and commercial technologies created by thousands of developers, researchers, and organizations worldwide. Without these powerful, well-maintained tools, creating a system like PRISM would require vastly more resources, specialized expertise, and development time.
 
-Proxmox Virtual Environment provides the foundational virtualization layer for PRISM's development environment. This open-source platform enables running multiple virtual machines on a single physical server with minimal overhead. Particularly valuable is its support for GPU passthrough, allowing direct allocation of graphics processing resources to specific VMs. While likely limited to prototyping rather than production deployment, Proxmox creates a flexible environment for testing various configurations and isolating components during development.
+The combination of infrastructure tools, AI frameworks, optimization techniques, and development environments allows PRISM to focus on its unique contribution—advancing early detection through medical pattern recognition—rather than reinventing fundamental technical components. This acceleration is particularly valuable in healthcare, where the potential impact of delayed implementation can be measured in human health outcomes.
 
-### PRISM Development Homelab
+## The Crucial Role of AI Assistance
 
-The PRISM development homelab represents a purpose-built high-performance computing environment that pushes consumer hardware to its architectural limits. Built around an Intel i9-14900K CPU with 96GB of DDR5 RAM, this innovative system uses PCIe bifurcation and NVMe adapters to connect six consumer-grade NVIDIA GPUs (primarily RTX 4060 Ti models), achieving the ~80GB VRAM threshold necessary for 4-bit quantized training of 70B parameter models. Running Proxmox as its primary operating system, this homelab environment enabled PRISM's earliest prototype training without the expense of cloud GPU rentals, serving as a proving ground for validating the core architectural concepts.
+The development of PRISM has been fundamentally enabled by hundreds of hours of interaction with advanced AI systems, primarily Anthropic's Claude, along with significant contributions from OpenAI's ChatGPT and Google's NotebookLM. These systems have served as collaborative partners throughout the conceptual development, architectural design, and implementation planning phases.
 
-### NVIDIA DIGITS
+This AI-assisted development approach has dramatically accelerated PRISM's evolution from initial concept to comprehensive system design, enabling rapid exploration of potential approaches, identification of technical challenges, and refinement of architectural decisions. The AI systems have provided not just technical assistance but collaborative ideation, helping transform a modest initial concept into the sophisticated system described in these documents.
 
-Project DIGITS represents NVIDIA's integrated hardware solution specifically designed for enterprise AI deployment. Expected to release in May 2025, these appliance-like devices package powerful GPU computing into a compact form factor that requires only standard power connections. With projected costs around $3,000, DIGITS provides a remarkably cost-effective platform for running PRISM's ensemble models on-premises within insurance company infrastructure. This self-contained approach simplifies deployment while providing the computational power necessary for efficient inference across multiple patient histories.
-
-While DIGITS currently represents the planned deployment hardware, PRISM's architecture remains flexible enough to adapt to alternative hardware options as they become available or as specific implementation needs evolve.
-
-### Ubuntu Server
-
-Ubuntu Server serves as the primary operating system for PRISM's development infrastructure. This lightweight, security-focused distribution provides an ideal foundation for running containerized applications. Its long-term support options ensure stability and ongoing security updates—critical considerations for healthcare-adjacent applications. Ubuntu's widespread adoption also ensures excellent compatibility with the AI/ML tools in PRISM's technology stack.
-
-### Docker
-
-Docker provides the containerization framework that enables PRISM's components to run consistently across different environments. By packaging applications with their dependencies, Docker eliminates "it works on my machine" problems and simplifies deployment. This approach allows PRISM to maintain a consistent environment from development through production, ensuring that components work together predictably regardless of where they're deployed.
-
-### Docker Compose
-
-Docker Compose extends Docker's capabilities by orchestrating multi-container applications through simple configuration files. This tool streamlines the management of PRISM's interconnected components, defining how they communicate and share resources. Compose allows the entire system to be launched with a single command while maintaining clear separation between components—a crucial consideration for both development agility and security isolation.
-
-## Monitoring and Observability
-
-### Prometheus
-
-Prometheus forms the backbone of PRISM's monitoring infrastructure, collecting and storing time-series metrics from across the system. This open-source monitoring solution excels at capturing operational data from multiple sources, enabling comprehensive visibility into system performance. For PRISM, this capability proves invaluable for tracking model training progress, inference efficiency, hardware performance metrics (including GPU/CPU temperatures, memory usage, and power consumption), and resource utilization across the ensemble architecture.
-
-### Grafana
-
-Grafana transforms PRISM's monitoring data into actionable insights through interactive, customizable dashboards. This visualization platform integrates seamlessly with Prometheus to provide real-time views of system performance. Its intuitive interface enables both technical and non-technical team members to monitor system health, track hardware temperatures and utilization, visualize training progress, and identify potential bottlenecks without requiring specialized knowledge of the underlying metrics collection.
-
-### Loki
-
-Loki complements Prometheus by focusing specifically on log aggregation and analysis. This lightweight system collects and indexes log data from across PRISM's components, making it searchable and accessible through the same Grafana dashboards that display metrics. This integrated approach to observability proves particularly valuable for centralizing error tracking and debugging, eliminating the need to search through dispersed log files when troubleshooting issues. By correlating system events with performance patterns during model training, Loki helps quickly identify the root cause of problems across PRISM's distributed components.
-
-### Alloy
-
-Alloy serves as the unifying agent that collects telemetry from various system components and forwards it to Prometheus and Loki. This lightweight collection tool enables comprehensive monitoring without significant performance overhead. By standardizing how metrics and logs are gathered, Alloy ensures consistent observability across PRISM's diverse technology stack.
+PRISM represents a concrete example of how AI systems can serve as amplifiers of human creativity and technical capability—transforming ambitious ideas into achievable systems through collaborative development processes that blend human vision with AI-assisted implementation.
 
 ## Core Data Platform
 
@@ -78,21 +46,9 @@ LangFlow provides a visual design environment for creating and refining PRISM's 
 
 Gradio powers PRISM's training configuration interfaces, providing intuitive access to model training settings and parameters. This specialized UI framework has become ubiquitous in the AI development community, serving as the foundation for thousands of interactive AI demos and applications. It powers most of HuggingFace's Spaces demonstrations and has become the de facto standard for rapidly developing AI interfaces. PRISM uses Gradio interfaces to configure training runs, monitor progress, and adjust parameters, with all settings and results stored in Supabase. This approach makes the sophisticated process of fine-tuning large language models accessible to team members without requiring deep expertise in machine learning implementation details.
 
-## Programming Foundation
+## HuggingFace Ecosystem
 
-### Python
-
-Python serves as the primary programming language for PRISM's development, reflecting its near-universal adoption in the AI/ML community. This accessible yet powerful language provides the foundation for every aspect of PRISM's implementation, from data processing to model training to interface development. Python's extensive ecosystem of libraries and tools specifically designed for AI applications makes it the natural choice for implementing PRISM's sophisticated pattern recognition capabilities, while its readability and approachability support collaborative development across team members with varying technical backgrounds.
-
-### UV
-
-UV reimagines Python package management with dramatically improved performance and dependency resolution. This modern replacement for traditional tools like pip, poetry, and venv streamlines the management of Python environments and dependencies. For PRISM's development, UV ensures consistent environments across development machines and simplifies the transition from experimentation to production, reducing environment-related bugs and improving team productivity.
-
-## AI and Machine Learning Ecosystem
-
-### HuggingFace Ecosystem
-
-The HuggingFace ecosystem provides a cohesive suite of interoperable tools that form the backbone of PRISM's machine learning capabilities. This integrated platform offers several advantages over assembling disparate components:
+The HuggingFace (HF) ecosystem provides a cohesive suite of interoperable tools that form the backbone of PRISM's machine learning capabilities. This integrated platform offers several advantages over assembling disparate components:
 
 - Consistent APIs across tools reduce cognitive overhead during development
 - Shared data formats eliminate conversion complexity between pipeline stages
@@ -102,29 +58,29 @@ The HuggingFace ecosystem provides a cohesive suite of interoperable tools that 
 
 By leveraging this unified ecosystem, PRISM benefits from the collective expertise of the AI research community while maintaining a coherent technical foundation.
 
-### HuggingFace Transformers
+### HF Transformers
 
 The Transformers library from HuggingFace provides the foundational architecture upon which PRISM's language models operate. This framework implements state-of-the-art transformer-based neural networks that power modern natural language processing. For PRISM, Transformers offers crucial capabilities for processing sequential medical data and identifying complex patterns across patient histories, with optimizations that make these advanced models accessible for specialized applications.
 
-### HuggingFace PEFT
+### HF PEFT
 
 Parameter-Efficient Fine-Tuning (PEFT) is the critical technology that enables PRISM's adapter approach to model specialization. This framework makes it possible to fine-tune massive language models by modifying only a small subset of parameters, dramatically reducing computational requirements. PEFT not only aligns with PRISM's QLoRA strategy—it fundamentally enables it by providing the infrastructure for creating, managing, and deploying these efficient adapters. Without PEFT, fine-tuning models at PRISM's scale would require orders of magnitude more computing resources, making the entire approach impractical for real-world deployment.
 
-### HuggingFace Datasets
+### HF Datasets
 
 The Datasets library provides standardized methods for working with structured data in machine learning pipelines. This framework streamlines data preprocessing, validation, and feeding into model training processes. For PRISM, Datasets offers efficient handling of the Five Ws formatted medical billing sequences through seamless integration with other HuggingFace tools. Its optimized data loading capabilities, caching mechanisms, and transformation pipelines ensure efficient processing of large medical sequence data while maintaining compatibility with the training frameworks.
 
-### HuggingFace TRL (Transformer Reinforcement Learning)
+### HF TRL
 
-The TRL library provides a comprehensive toolkit for various fine-tuning approaches that PRISM leverages for its two-stage training process. Instead of requiring custom training code development, TRL offers pre-built, production-ready trainers that implement best practices for different fine-tuning objectives.
+The Transformer Reinforcement Learning (TRL) library provides a comprehensive toolkit for various fine-tuning approaches that PRISM leverages for its two-stage training process. Instead of requiring custom training code development, TRL offers pre-built, production-ready trainers that implement best practices for different fine-tuning objectives.
 
-#### TRL SFT (Supervised Fine-Tuning)
+#### HF TRL SFT Trainer
 
-The Supervised Fine-Tuning trainer within TRL powers PRISM's first training stage, where models learn to understand general patterns in medical billing sequences. This ready-to-use implementation handles the numerous complexities of fine-tuning large language models, including learning rate scheduling, gradient accumulation, and efficient batch processing. By leveraging this pre-built trainer, PRISM can focus on the medical pattern recognition problem rather than reinventing complex training infrastructure.
+The Supervised Fine-Tuning (SFT) trainer within TRL powers PRISM's first training stage, where models learn to understand general patterns in medical billing sequences. This ready-to-use implementation handles the numerous complexities of fine-tuning large language models, including learning rate scheduling, gradient accumulation, and efficient batch processing. By leveraging this pre-built trainer, PRISM can focus on the medical pattern recognition problem rather than reinventing complex training infrastructure.
 
-#### TRL BCO (Binary Classification Optimization)
+#### HF TRL BCO Trainer
 
-The Binary Classification Optimization trainer enables PRISM's second training stage, where models learn to identify specific patterns warranting screening recommendations. This specialized, pre-built implementation transforms pattern recognition into a classification task, handling the technical details of training models to distinguish between positive and negative examples. PRISM uses this trainer to efficiently create condition-specific adapters without requiring extensive custom machine learning code.
+The Binary Classification Optimization (BCO) trainer enables PRISM's second training stage, where models learn to identify specific patterns warranting screening recommendations. This specialized, pre-built implementation transforms pattern recognition into a classification task, handling the technical details of training models to distinguish between positive and negative examples. PRISM uses this trainer to efficiently create condition-specific adapters without requiring extensive custom machine learning code.
 
 ## Foundation Models
 
@@ -143,13 +99,13 @@ While PRISM's production implementation will leverage the 70 billion parameter v
 
 ## Optimization Techniques
 
-### QLoRA (Quantized Low-Rank Adaptation)
+### QLoRA
 
-QLoRA makes PRISM's ambitious architecture possible by dramatically reducing the computational resources required for model fine-tuning. This technique combines quantization (reducing numerical precision to 8-bit or 4-bit) with low-rank adaptation (modifying only a small subset of model parameters) to create remarkably efficient training and inference. By operating on quantized models rather than full precision, QLoRA enables PRISM to run sophisticated pattern recognition capabilities on cost-effective hardware, without sacrificing essential performance.
+Quantized Low-Rank Adaptation (QLoRA) makes PRISM's ambitious architecture possible by dramatically reducing the computational resources required for model fine-tuning. This technique combines quantization (reducing numerical precision to 8-bit or 4-bit) with low-rank adaptation (modifying only a small subset of model parameters) to create remarkably efficient training and inference. By operating on quantized models rather than full precision, QLoRA enables PRISM to run sophisticated pattern recognition capabilities on cost-effective hardware, without sacrificing essential performance.
 
-### Bits and Bytes
+### bitsandbytes
 
-The Bits and Bytes library provides the quantization capabilities that underpin PRISM's efficiency optimizations. This toolkit enables loading and converting large language models to reduced precision formats (8-bit or 4-bit) with minimal quality degradation. These precision reductions translate directly to lower memory requirements and faster processing, making it possible to run PRISM's ensemble architecture on modest hardware without requiring specialized data center resources.
+The bitsandbytes library provides the quantization capabilities that underpin PRISM's efficiency optimizations. This toolkit enables loading and converting large language models to reduced precision formats (8-bit or 4-bit) with minimal quality degradation. These precision reductions translate directly to lower memory requirements and faster processing, making it possible to run PRISM's ensemble architecture on modest hardware without requiring specialized data center resources.
 
 ### Attention Optimizations
 
@@ -186,29 +142,43 @@ The Liger Kernel provides specialized computational optimizations that substanti
 
 HuggingFace's Accelerate library simplifies the implementation of advanced training optimizations like mixed precision and distributed training. This toolkit provides a unified interface for techniques that would otherwise require significant specialized code. For PRISM, Accelerate enables the development team to focus on the medical pattern recognition problem rather than the technical implementation details of efficient training, while still benefiting from state-of-the-art optimization approaches.
 
-## Documentation and Knowledge Sharing
+## Infrastructure and Hardware
 
-### Markdown
+### Development Homelab
 
-Markdown serves as the foundation for all PRISM documentation, providing a simple yet powerful formatting syntax that produces clean, readable documentation. This lightweight markup language strikes an ideal balance between human readability and structured formatting. For PRISM, Markdown enables collaborative documentation development that integrates seamlessly with version control systems, ensuring that technical documentation remains accurate and accessible throughout the project's evolution.
+The PRISM development homelab represents a purpose-built high-performance computing environment that pushes consumer hardware to its architectural limits. Built around an Intel i9-14900K CPU with 96GB of DDR5 RAM, this innovative system uses PCIe bifurcation and NVMe adapters to connect six consumer-grade NVIDIA GPUs (primarily RTX 4060 Ti models), achieving the ~80GB VRAM threshold necessary for 4-bit quantized training of 70B parameter models. Running Proxmox as its primary operating system, this homelab environment enabled PRISM's earliest prototype training without the expense of cloud GPU rentals, serving as a proving ground for validating the core architectural concepts.
 
-### VitePress
+### NVIDIA DIGITS
 
-VitePress powers PRISM's public documentation website, transforming Markdown content into an elegant, searchable knowledge base. This static site generator combines modern web technologies with exceptional performance to create documentation that's both comprehensive and accessible. The resulting documentation site provides a central reference point for implementation partners, researchers, and other stakeholders, ensuring that PRISM's approach remains transparent and understandable.
+Project DIGITS represents NVIDIA's integrated hardware solution specifically designed for enterprise AI deployment. Expected to release in May 2025, these appliance-like devices package powerful GPU computing into a compact form factor that requires only standard power connections. With projected costs around $3,000, DIGITS provides a remarkably cost-effective platform for running PRISM's ensemble models on-premises within insurance company infrastructure. This self-contained approach simplifies deployment while providing the computational power necessary for efficient inference across multiple patient histories.
 
-## Acknowledging Technological Foundations
+While DIGITS currently represents the planned deployment hardware, PRISM's architecture remains flexible enough to adapt to alternative hardware options as they become available or as specific implementation needs evolve.
 
-PRISM's development stands on the shoulders of extraordinary open-source and commercial technologies created by thousands of developers, researchers, and organizations worldwide. Without these powerful, well-maintained tools, creating a system like PRISM would require vastly more resources, specialized expertise, and development time.
+### Docker
 
-The combination of infrastructure tools, AI frameworks, optimization techniques, and development environments allows PRISM to focus on its unique contribution—advancing early detection through medical pattern recognition—rather than reinventing fundamental technical components. This acceleration is particularly valuable in healthcare, where the potential impact of delayed implementation can be measured in human health outcomes.
+Docker provides the containerization framework that enables PRISM's components to run consistently across different environments. By packaging applications with their dependencies, Docker eliminates "it works on my machine" problems and simplifies deployment. This approach allows PRISM to maintain a consistent environment from development through production, ensuring that components work together predictably regardless of where they're deployed.
 
-### The Crucial Role of AI Assistance
+### Docker Compose
 
-The development of PRISM has been fundamentally enabled by hundreds of hours of interaction with advanced AI systems, primarily Anthropic's Claude, along with significant contributions from OpenAI's ChatGPT and Google's NotebookLM. These systems have served as collaborative partners throughout the conceptual development, architectural design, and implementation planning phases.
+Docker Compose extends Docker's capabilities by orchestrating multi-container applications through simple configuration files. This tool streamlines the management of PRISM's interconnected components, defining how they communicate and share resources. Compose allows the entire system to be launched with a single command while maintaining clear separation between components—a crucial consideration for both development agility and security isolation.
 
-This AI-assisted development approach has dramatically accelerated PRISM's evolution from initial concept to comprehensive system design, enabling rapid exploration of potential approaches, identification of technical challenges, and refinement of architectural decisions. The AI systems have provided not just technical assistance but collaborative ideation, helping transform a modest initial concept into the sophisticated system described in these documents.
+## Monitoring and Observability
 
-PRISM represents a concrete example of how AI systems can serve as amplifiers of human creativity and technical capability—transforming ambitious ideas into achievable systems through collaborative development processes that blend human vision with AI-assisted implementation.
+### Prometheus
+
+Prometheus forms the backbone of PRISM's monitoring infrastructure, collecting and storing time-series metrics from across the system. This open-source monitoring solution excels at capturing operational data from multiple sources, enabling comprehensive visibility into system performance. For PRISM, this capability proves invaluable for tracking model training progress, inference efficiency, hardware performance metrics (including GPU/CPU temperatures, memory usage, and power consumption), and resource utilization across the ensemble architecture.
+
+### Grafana
+
+Grafana transforms PRISM's monitoring data into actionable insights through interactive, customizable dashboards. This visualization platform integrates seamlessly with Prometheus to provide real-time views of system performance. Its intuitive interface enables both technical and non-technical team members to monitor system health, track hardware temperatures and utilization, visualize training progress, and identify potential bottlenecks without requiring specialized knowledge of the underlying metrics collection.
+
+### Loki
+
+Loki complements Prometheus by focusing specifically on log aggregation and analysis. This lightweight system collects and indexes log data from across PRISM's components, making it searchable and accessible through the same Grafana dashboards that display metrics. This integrated approach to observability proves particularly valuable for centralizing error tracking and debugging, eliminating the need to search through dispersed log files when troubleshooting issues. By correlating system events with performance patterns during model training, Loki helps quickly identify the root cause of problems across PRISM's distributed components.
+
+### Alloy
+
+Alloy serves as the unifying agent that collects telemetry from various system components and forwards it to Prometheus and Loki. This lightweight collection tool enables comprehensive monitoring without significant performance overhead. By standardizing how metrics and logs are gathered, Alloy ensures consistent observability across PRISM's diverse technology stack.
 
 ## Conclusion
 
