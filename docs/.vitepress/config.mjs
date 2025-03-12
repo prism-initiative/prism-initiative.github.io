@@ -14,6 +14,7 @@ export default defineConfig({
       {
         text: 'Introduction',
         items: [
+          { text: 'Home', link: '/' },
           { text: 'Executive Summary', link: '/01-executive-summary' },
         ]
       },
@@ -51,6 +52,10 @@ export default defineConfig({
       }
     ],
 
+    outline: {
+      level: 'deep'
+    },
+    
     socialLinks: [
       { icon: 'huggingface', link: 'https://huggingface.co/prism-initiative' },
       { icon: 'github', link: 'https://github.com/prism-initiative' },
@@ -61,5 +66,6 @@ export default defineConfig({
   
   markdown: {
     lineNumbers: true
-  }
+  },
+  
 });
