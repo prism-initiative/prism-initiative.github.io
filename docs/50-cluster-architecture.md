@@ -2,7 +2,7 @@
 
 ## Server Rack Design
 
-PRISM's physical architecture embodies a philosophy of simplicity through modularity, deploying standardized server racks that transform consumer hardware into enterprise-capable AI infrastructure. Each rack houses multiple compact enclosures containing the GPU clusters that power PRISM's ensemble models, along with a dedicated management and training server that orchestrates the entire operation. This design reflects years of experience building resilient systems for regulated industries, where reliability matters more than cutting-edge specifications.
+PRISM's physical architecture embodies a philosophy of simplicity through modularity, deploying standardized server racks that transform consumer hardware into enterprise-capable AI infrastructure. Each rack houses multiple compact enclosures containing the GPU clusters that power PRISM's ensemble models, along with a dedicated management and training server that orchestrates the entire operation. This design reflects years of experience building resilient systems for regulated industries, where radical simplicity enables ongoing flexibility.
 
 The standardization of rack design enables predictable scaling. When an insurance company needs additional processing capacity to handle growing patient populations or faster evaluation cycles, they simply add another identical rack. There's no complex capacity planning, no architectural redesign, no integration challenges just linear scaling through replication. Each rack operates as a semi-autonomous unit, processing its assigned workload while coordinating with other racks through the central management infrastructure.
 
@@ -22,13 +22,13 @@ The consumer GPU strategy also provides flexibility as technology evolves. When 
 
 ## Modular Enclosures
 
-Within each server rack, self-contained enclosures house clusters of GPUs with their integrated cooling and power distribution systems. These modular units, typically containing four to six GPUs each, transform a collection of consumer hardware into manageable, serviceable infrastructure. Each enclosure operates as an independent unit that can be removed, serviced, or replaced without affecting other enclosures in the rack.
+Within each server rack, self-contained enclosures house clusters of GPUs with their integrated cooling and power distribution systems. These modular units transform a collection of consumer hardware into manageable, serviceable infrastructure. Each enclosure operates as an independent unit that can be removed, serviced, or replaced without affecting other enclosures in the rack.
 
 The modular design addresses the practical realities of maintaining distributed GPU clusters. When a power supply fails in one enclosure, technicians can swap the entire unit in minutes rather than troubleshooting individual components. When GPUs need replacement or upgrade, entire enclosures can be refreshed during scheduled maintenance windows. When cooling systems require service, affected enclosures can be temporarily removed while others continue operating. This modularity transforms complex hardware maintenance into simple replacement procedures that don't require specialized expertise.
 
 These enclosures also provide natural failure isolation. Problems in one enclosure—whether overheating, power fluctuations, or hardware failures—remain contained rather than cascading through the entire rack. Each enclosure has its own cooling fans, its own power distribution, its own network connections. This isolation ensures that hardware problems create degraded performance rather than system failures, maintaining PRISM's availability even during component failures.
 
-The standardization of enclosures enables operational flexibility that custom-built systems cannot match. Spare enclosures can be pre-configured and stored on-site, ready for immediate deployment when failures occur. Different GPU configurations can be tested by swapping enclosures rather than rebuilding systems. Capacity can be adjusted by adding or removing enclosures based on workload requirements. This flexibility proves invaluable in production environments where uptime matters more than optimal configuration.
+The standardization of enclosures enables operational flexibility that custom-built systems cannot match. Spare enclosures can be pre-configured and stored on-site, ready for immediate deployment when failures occur. Different GPU configurations can be tested by swapping enclosures rather than rebuilding systems. Capacity can be adjusted by adding or removing enclosures based on workload requirements. This flexibility proves invaluable in rapidly changing production environments.
 
 ## Network Isolation
 

@@ -166,8 +166,6 @@ When organizations contribute trained models to the collective, they immediately
 
 The collaborative model also distributes development costs across participants. Instead of each organization bearing full infrastructure, development, and validation costs, these expenses spread across the network. Early adopters help establish the framework that later participants can immediately leverage. Technical improvements from any participant benefit everyone.
 
-Risk distribution provides another collaborative advantage. When pattern recognition fails or generates excessive false positives, the impact spreads across multiple organizations rather than devastating a single company's credibility. When patterns prove highly successful, all participants share the reputational benefit of advancing medical early detection.
-
 ### Transforming Competition
 
 Rather than competing on proprietary pattern recognition, organizations can compete on implementation excellence. The collaborative network ensures everyone has access to world-class pattern recognition, but organizations differentiate through how effectively they integrate suggestions into clinical workflows, how well they communicate with physicians, how successfully they ensure patient follow-through, and how efficiently they manage the screening-to-diagnosis pipeline.

@@ -1,12 +1,12 @@
 # Processing Pipeline Specifications
 
-PRISM's processing pipeline coordinates the evaluation of patient histories through the ensemble models, from initial patient selection through to generating screening suggestions for insurance company communication. The pipeline operates in distinct stages, each handling specific aspects of the pattern recognition process while maintaining reliability and efficiency at scale.
+PRISM's processing pipeline coordinates the evaluation of patient histories through the ensemble models, from initial patient selection to generating screening suggestions for insurance company communication. The pipeline operates in distinct stages, each handling specific aspects of the pattern recognition process while maintaining reliability and efficiency at scale.
 
 ## Stage 1: Patient Selection and Prioritization
 
 From the formatted patient population, the pipeline selects which patients to process in each evaluation cycle. This selection balances multiple objectives: ensuring all patients receive periodic evaluation, prioritizing those with patterns suggesting screening opportunities, and managing computational resources efficiently.
 
-Vector similarity matching identifies patients whose recent medical trajectories resemble confirmed cases where early screening proved beneficial. These high-priority patients move to the front of the processing queue, ensuring computational resources focus where they're most likely to generate value. The similarity thresholds adapt based on empirical results, tightening when false positives are excessive and relaxing when true opportunities are being missed.
+Vector similarity matching identifies patients whose recent medical trajectories resemble confirmed cases where early screening proved beneficial. These high-priority patients move to the front of the processing queue, ensuring computational resources focus where they're most likely to generate value. The similarity thresholds can be adapted based on empirical results.
 
 The selection process also ensures equity in processing. Randomization prevents any systematic bias that might cause certain patient segments to be consistently overlooked. Periodic full-population sweeps ensure even patients with minimal recent activity receive evaluation. The goal is comprehensive coverage that doesn't miss opportunities due to selection bias while still prioritizing computational resources intelligently.
 

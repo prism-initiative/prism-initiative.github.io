@@ -2,7 +2,7 @@
 
 ## One Model Per Day Target
 
-PRISM's continuous learning architecture centers on a disciplined daily retraining cycle where exactly one model from the hundred-model ensemble undergoes complete retraining on its assigned patient pool's latest data. This measured approach ensures that every model in the ensemble refreshes with new medical patterns approximately every three months while maintaining system stability through gradual, predictable updates rather than disruptive batch refreshes.
+PRISM's continuous learning architecture centers on a disciplined daily retraining cycle where exactly one model from the hundred-model ensemble undergoes complete retraining on its assigned patient pool's latest data. This measured approach ensures that every model in the ensemble refreshes with new medical patterns every 100 days while maintaining system stability through gradual, predictable updates rather than disruptive batch refreshes.
 
 The daily retraining target represents a careful balance between computational feasibility and pattern currency. Training a single model each day requires substantial but manageable computational resources that can be provisioned reliably within the cluster architecture's management server. This predictable workload allows for efficient resource planning and ensures that training never interferes with the continuous inference processing that generates screening suggestions.
 
