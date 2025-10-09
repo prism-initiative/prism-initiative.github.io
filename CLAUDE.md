@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is the official documentation website for the PRISM (Predictive Recommendations for Improved Screening in Medicine) initiative. PRISM is an AI-powered healthcare pattern recognition system that analyzes insurance claims data to identify beneficial screening opportunities for early disease detection.
 
-The site is built with VitePress and deployed to GitHub Pages at https://prism-initiative.github.io.
+The site is built with VitePress and deployed to GitHub Pages at https://prisminitiative.ai (also accessible via https://prism-initiative.github.io).
 
 ## Common Commands
 
@@ -33,6 +33,14 @@ npm run docs:preview
 # Install dependencies
 npm install
 ```
+
+### Table of Contents Generation
+```bash
+# Rebuild the table of contents (docs/03-table-of-contents.md)
+./build-toc.sh
+```
+
+The `build-toc.sh` script automatically scans all markdown files in `docs/` and generates a comprehensive table of contents with direct links to every heading and section across all documentation. Run this script whenever you add new documentation files or modify headings to keep the table of contents up to date.
 
 ## Project Structure
 
@@ -117,14 +125,16 @@ The site automatically deploys to GitHub Pages on every push to the `main` branc
 1. Create the markdown file in `docs/` with appropriate numbered prefix (e.g., `42-new-topic.md`)
 2. Add frontmatter if needed (VitePress supports YAML frontmatter)
 3. Update `docs/.vitepress/config.mjs` to add the page to the appropriate sidebar section
-4. Ensure cross-references to/from related documents are added at the end of the page
-5. Test locally with `npm run docs:dev`
+4. Run `./build-toc.sh` to regenerate the table of contents with the new page
+5. Ensure cross-references to/from related documents are added at the end of the page
+6. Test locally with `npm run docs:dev`
 
 ### Editing Existing Pages
 - Markdown files can be edited directly
 - VitePress dev server has hot-reload enabled
 - Pay attention to the internal link structure (format: `/page-name` without `.md` extension)
 - Maintain the consistent cross-referencing pattern at the end of documents
+- If you add, remove, or modify headings, run `./build-toc.sh` to update the table of contents
 
 ### Sidebar Configuration
 The sidebar in `config.mjs` is organized hierarchically:

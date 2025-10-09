@@ -5,10 +5,22 @@
 
 OUTPUT_FILE="docs/03-table-of-contents.md"
 
+# Function to extract text from markdown link [text](/url) or return as-is
+extract_link_text() {
+    local text="$1"
+    # If it's a markdown link [text](/url), extract just the text
+    if echo "$text" | grep -q '\[.*\](.*)'; then
+        echo "$text" | sed 's/\[\([^]]*\)\](.*/\1/'
+    else
+        echo "$text"
+    fi
+}
+
 # Function to convert heading text to VitePress anchor format
 # VitePress: lowercase, spaces to hyphens, remove special chars
 heading_to_anchor() {
-    echo "$1" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9 -]//g' | sed 's/ /-/g' | sed 's/--*/-/g'
+    local text=$(extract_link_text "$1")
+    echo "$text" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9 -]//g' | sed 's/ /-/g' | sed 's/--*/-/g'
 }
 
 # Function to get page path from filename (without .md extension)
@@ -63,7 +75,10 @@ process_section() {
             level=$((level - 1))
 
             # Extract the heading text (remove # and leading/trailing spaces)
-            heading_text=$(echo "$line" | sed 's/^#*[ ]*//')
+            heading_raw=$(echo "$line" | sed 's/^#*[ ]*//')
+
+            # Extract just the text if it's a markdown link
+            heading_text=$(extract_link_text "$heading_raw")
 
             if [ $first_heading = true ]; then
                 # First heading is the document title - link to the page
@@ -71,7 +86,7 @@ process_section() {
                 first_heading=false
             else
                 # Subsequent headings - link to anchors
-                anchor=$(heading_to_anchor "$heading_text")
+                anchor=$(heading_to_anchor "$heading_raw")
 
                 # Calculate indentation (level - 2 since h1 is doc title)
                 indent_level=$((level - 2))
