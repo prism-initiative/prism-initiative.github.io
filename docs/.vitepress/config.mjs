@@ -26,7 +26,7 @@ export default defineConfig({
       },
       {
         text: 'Foundation & Data Architecture',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: 'PRISM Data Format', link: '/10-prism-data-format' },
           { text: 'Completely Anonymous Data Only', link: '/11-completely-anonymous-data' },
@@ -37,7 +37,7 @@ export default defineConfig({
       },
       {
         text: 'AI Architecture & Philosophy',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: 'Pure Sequence Completion', link: '/20-pure-sequence-completion' },
           { text: 'Ensemble of 100 Specialized Models', link: '/21-ensemble-models' },
@@ -48,7 +48,7 @@ export default defineConfig({
       },
       {
         text: 'Examples & Demonstrations',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: 'Synthetic Case Examples', link: '/30-synthetic-cases' },
           { text: 'GOOD Example - Early Detection', link: '/31-good-example' },
@@ -60,7 +60,7 @@ export default defineConfig({
       },
       {
         text: 'Implementation & Operations',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: 'Consensus Voting Mechanism', link: '/40-consensus-voting' },
           { text: 'Clinical Decision Support Positioning', link: '/41-clinical-decision-support' },
@@ -72,7 +72,7 @@ export default defineConfig({
       },
       {
         text: 'Infrastructure & Processing',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: 'Cluster Architecture Approach', link: '/50-cluster-architecture' },
           { text: 'Continuous Model Retraining', link: '/51-continuous-retraining' },
@@ -81,14 +81,14 @@ export default defineConfig({
       },
       {
         text: 'Collaboration & Growth',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: 'Open Collaboration with Privacy Protection', link: '/60-open-collaboration' },
         ]
       },
       {
         text: 'Organization & Research',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: 'Large and Rich Dataset', link: '/70-large-dataset' },
           { text: 'PBC Structure and Team', link: '/71-pbc-team' },
@@ -97,7 +97,7 @@ export default defineConfig({
       },
       {
         text: 'Technical Deep Dives',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: 'Vector Representations & Mathematics', link: '/85-vector-representations' },
           { text: 'Technology Stack & Libraries', link: '/86-technology-stack' },
@@ -107,7 +107,7 @@ export default defineConfig({
       },
       {
         text: 'References & Resources',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: 'Glossary of Terms', link: '/99-glossary-of-terms' },
         ]
